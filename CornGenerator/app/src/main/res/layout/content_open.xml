@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/hiresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".OpenActivity"
+    tools:showIn="@layout/app_bar_open">
+
+    <Button
+        android:id="@+id/adda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorRed"
+        android:text="Adda"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toStartOf="@+id/addB"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/addB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorRed"
+        android:text="AddB"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toStartOf="@+id/removeA"
+        app:layout_constraintStart_toEndOf="@+id/adda"
+        app:layout_constraintTop_toTopOf="@+id/adda" />
+
+    <Button
+        android:id="@+id/removeA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorRed"
+        android:text="Rema"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toStartOf="@+id/removeB"
+        app:layout_constraintStart_toEndOf="@+id/addB"
+        app:layout_constraintTop_toTopOf="@+id/adda" />
+
+    <Button
+        android:id="@+id/removeB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorRed"
+        android:text="RemB"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/removeA"
+        app:layout_constraintTop_toTopOf="@+id/adda" />
+
+    <Button
+        android:id="@+id/RepA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorRed"
+        android:text="RepA"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toStartOf="@+id/RepB"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adda" />
+
+    <Button
+        android:id="@+id/RepB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorRed"
+        android:text="RepB"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toStartOf="@+id/showA"
+        app:layout_constraintStart_toEndOf="@+id/RepA"
+        app:layout_constraintTop_toTopOf="@+id/RepA" />
+
+    <Button
+        android:id="@+id/showA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorRed"
+        android:text="ShowA"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toStartOf="@+id/showB"
+        app:layout_constraintStart_toEndOf="@+id/RepB"
+        app:layout_constraintTop_toTopOf="@+id/RepA" />
+
+    <Button
+        android:id="@+id/showB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorRed"
+        android:text="Showb"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/showA"
+        app:layout_constraintTop_toTopOf="@+id/RepA" />
+
+    <FrameLayout
+        android:id="@+id/nandini"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/showB" />
+
+
+    <android.support.constraint.Group
+        android:id="@+id/firstLevel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="adda,addB,removeA,removeB"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/showB" />
+
+    <android.support.constraint.Group
+        android:id="@+id/secondLevel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="RepA,RepB,showA,showB"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/showB" />
+
+</android.support.constraint.ConstraintLayout>

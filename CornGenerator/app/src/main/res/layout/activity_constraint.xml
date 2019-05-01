@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvED"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Welcome to Android"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/enterMyName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:hint="Enter My Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvED" />
+
+    <EditText
+        android:id="@+id/enterMyDD"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter My Mobile"
+        app:layout_constraintEnd_toEndOf="@+id/enterMyName"
+        app:layout_constraintStart_toStartOf="@+id/enterMyName"
+        app:layout_constraintTop_toBottomOf="@+id/enterMyName" />
+
+    <EditText
+        android:id="@+id/enterMySS"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter My Email"
+        app:layout_constraintEnd_toEndOf="@+id/enterMyName"
+        app:layout_constraintStart_toStartOf="@+id/enterMyName"
+        app:layout_constraintTop_toBottomOf="@+id/enterMyDD" />
+</android.support.constraint.ConstraintLayout>
