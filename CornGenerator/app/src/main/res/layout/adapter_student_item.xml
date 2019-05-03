@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    android:layout_marginTop="5dp">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="2dp"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/stName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                tools:text="Harsha" />
+
+            <TextView
+                android:id="@+id/stAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/stName"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                tools:text="27" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/stCall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/stName"
+                android:layout_alignBottom="@+id/stAge"
+                android:layout_alignParentEnd="true"
+                android:src="@android:drawable/ic_menu_call"
+                android:tint="@color/colorRed" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</android.support.constraint.ConstraintLayout>

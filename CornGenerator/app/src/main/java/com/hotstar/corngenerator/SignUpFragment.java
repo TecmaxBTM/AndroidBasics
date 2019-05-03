@@ -63,7 +63,7 @@ public class SignUpFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                WhatsappActivity.replaceFrag(new LoginFragment());
+                WhatsappActivity.replaceFrag(new LoginFragment(),false);
                 WhatsappActivity.asdas.setVisibility(View.GONE);
 //                mSignUpListener.onSignUpClicked(0);
             }
