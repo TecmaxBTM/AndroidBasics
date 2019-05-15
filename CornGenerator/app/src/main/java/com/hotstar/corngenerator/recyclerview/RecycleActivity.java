@@ -2,7 +2,7 @@ package com.hotstar.corngenerator.recyclerview;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.hotstar.corngenerator.R;
@@ -20,12 +20,12 @@ public class RecycleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recycle);
         asfl = findViewById(R.id.rec);
         // INFO: FOR vertical orientation
-        layoutManager = new LinearLayoutManager(this);
+//        layoutManager = new LinearLayoutManager(this);
         // INFO: FOR horizontal orientation
 //        layoutManager = new LinearLayoutManager(this,
-//                LinearLayoutManager.HORIZONTAL, false);
+//                LinearLayoutManager.HORIZONTAL, true);
         // INFO: FOR Grid orientation
-//        layoutManager = new GridLayoutManager(this, 2);
+        layoutManager = new GridLayoutManager(this, 2);
         // INFO: FOR Staggred orientation
 //        layoutManager = new StaggeredGridLayoutManager(3, 1);
         asfl.setLayoutManager(layoutManager);

@@ -11,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".recyclerview.RecycleActivity">
+        <activity android:name=".LauncherActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,16 +20,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".bottomnava.BottomNavActivity"
-            android:label="@string/title_activity_bottom_nav">
-
+            android:name=".coordinator.ExpandingActivity"
+            android:label="@string/title_activity_expanding"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity android:name=".recyclerview.RecycleActivity"/>
+        <activity
+            android:name=".bottomnava.BottomNavActivity"
+            android:label="@string/title_activity_bottom_nav" />
         <activity
             android:name=".WhatsappActivity"
             android:label="@string/title_activity_whatsapp"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".OpenActivity"
             android:label="@string/title_activity_open"
