@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hotstar.corngenerator.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -29,8 +30,15 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
 
     @Override
     public void onBindViewHolder(StudentAdapter.StudentVH viewHolder, int i) {
-            viewHolder.name.setText(studentsList.get(i).getName());
-            viewHolder.age.setText(studentsList.get(i).getAge());
+        viewHolder.name.setText(studentsList.get(i).getName());
+        viewHolder.age.setText(studentsList.get(i).getAge());
+        if (!studentsList.get(i).getAddress().isEmpty()) {
+            Picasso.with(viewHolder.name.getContext())
+                    .load(studentsList.get(i).getAddress()).into(viewHolder.stImage);
+        } else {
+            Picasso.with(viewHolder.name.getContext())
+                    .load(R.drawable.msj).into(viewHolder.stImage);
+        }
     }
 
     @Override
@@ -41,12 +49,14 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
     class StudentVH extends RecyclerView.ViewHolder {
         private TextView name, age;
         private AppCompatImageView call;
+        private AppCompatImageView stImage;
 
         public StudentVH(final View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.stName);
             age = itemView.findViewById(R.id.stAge);
             call = itemView.findViewById(R.id.stCall);
+            stImage = itemView.findViewById(R.id.stImage);
 
             name.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="5dp"
-    android:layout_marginEnd="5dp"
-    android:layout_marginTop="5dp">
+    android:layout_marginTop="5dp"
+    android:layout_marginEnd="5dp">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -20,12 +20,21 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="75dp"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/stImage"
+                android:layout_width="75dp"
+                android:layout_height="match_parent"
+                tools:src="@drawable/msj" />
 
             <TextView
                 android:id="@+id/stName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_toEndOf="@+id/stImage"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
                 tools:text="Harsha" />
@@ -35,6 +44,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/stName"
+                android:layout_marginStart="5dp"
+                android:layout_toEndOf="@+id/stImage"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
                 tools:text="27" />

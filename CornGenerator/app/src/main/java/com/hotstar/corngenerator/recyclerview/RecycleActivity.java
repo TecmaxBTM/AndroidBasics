@@ -31,11 +31,11 @@ public class RecycleActivity extends AppCompatActivity {
         asfl.setLayoutManager(layoutManager);
 
         ArrayList<Student> ad = new ArrayList<>();
-        ad.add(new Student("Nandini","25","2134r43","",""));
-        ad.add(new Student("Imran","26","234532","",""));
-        ad.add(new Student("Rashmi","25","4324","",""));
-        ad.add(new Student("Latesh","24","342","",""));
-        ad.add(new Student("Latesh","24","342","",""));
+        ad.add(new Student("Nandini","25","2134r43","https://www.samaa.tv/wp-content/uploads/2019/03/imran-khan-2.jpg",""));
+        ad.add(new Student("Imran","26","234532","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx7pFSRTQnitf0Ls3WkMycBEyOhiWOHKj8YddW6VAVZBFOkDsx",""));
+        ad.add(new Student("Rashmi","25","4324","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj705GWz4t-7eXOHO5O3WbLmyKrPg-0wHkIlRNvZJqt1gAp68tvQ",""));
+        ad.add(new Student("Latesh","24","342","https://images.jdmagicbox.com/events/A318747/A318747_gal_20180321155718.jpg",""));
+        ad.add(new Student("Latesh","24","342","https://www.gurusfeet.com/files/imagecache/guru_pic_main_imagescale/files/gurus_pics/4798_228840655098_767230098_7363359_7277482_n.jpg",""));
         ad.add(new Student("Latesh","24","342","",""));
         ad.add(new Student("Latesh","24","342","",""));
         ad.add(new Student("Latesh","24","342","",""));
