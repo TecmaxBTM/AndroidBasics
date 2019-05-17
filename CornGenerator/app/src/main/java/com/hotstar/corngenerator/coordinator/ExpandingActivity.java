@@ -1,14 +1,20 @@
 package com.hotstar.corngenerator.coordinator;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hotstar.corngenerator.R;
 
@@ -35,7 +41,7 @@ public class ExpandingActivity extends AppCompatActivity {
         t1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dailNumber(v);
+                callNumber(v);
 //                startActivity(new Intent(ExpandingActivity.this, HomeActivity.class));
             }
         });
@@ -56,4 +62,56 @@ public class ExpandingActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void callNumber(View view) {
+        if (askForPermission(Manifest.permission.CALL_PHONE, 1)) {
+            Intent intent = new Intent(Intent.ACTION_CALL,
+                    Uri.parse("tel:8310701931"));
+            startActivity(intent);
+        } else {
+            displayPermission(Manifest.permission.CALL_PHONE, 1);
+        }
+    }
+
+
+    private boolean askForPermission(String permission, Integer requestCode) {
+        if (ContextCompat.checkSelfPermission(ExpandingActivity.this, permission)
+                != PackageManager.PERMISSION_GRANTED) {
+            return false;
+        } else {
+            Toast.makeText(this, "" + permission + " is already granted.", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+    }
+
+    void displayPermission(String permission, Integer requestCode) {
+        // Should we show an explanation?
+        if (ActivityCompat.shouldShowRequestPermissionRationale(
+                ExpandingActivity.this, permission)) {
+
+            //This is called if user has denied the permission before
+            //In this case I am just asking the permission again
+            ActivityCompat.requestPermissions(ExpandingActivity.this,
+                    new String[]{permission}, requestCode);
+
+        } else {
+
+            ActivityCompat.requestPermissions(ExpandingActivity.this,
+                    new String[]{permission}, requestCode);
+        }
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (ActivityCompat.checkSelfPermission(this, permissions[0]) == PackageManager.PERMISSION_GRANTED) {
+            if (requestCode == 1) {
+                callNumber(t1);
+            }
+        } else {
+            Toast.makeText(this, "Need Permission to Call", Toast.LENGTH_SHORT).show();
+        }
+
+    }
 }
