@@ -13,10 +13,13 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hotstar.corngenerator.R;
+import com.hotstar.corngenerator.recyclerview.RecycleActivity;
 
 public class ExpandingActivity extends AppCompatActivity {
     TextView t1;
@@ -41,8 +44,16 @@ public class ExpandingActivity extends AppCompatActivity {
         t1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callNumber(v);
-//                startActivity(new Intent(ExpandingActivity.this, HomeActivity.class));
+//                callNumber(v);
+                startActivity(new Intent(ExpandingActivity.this, RecycleActivity.class));
+            }
+        });
+
+        findViewById(R.id.t2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
+                t1.startAnimation(animation1);
             }
         });
     }
@@ -87,14 +98,11 @@ public class ExpandingActivity extends AppCompatActivity {
         // Should we show an explanation?
         if (ActivityCompat.shouldShowRequestPermissionRationale(
                 ExpandingActivity.this, permission)) {
-
             //This is called if user has denied the permission before
             //In this case I am just asking the permission again
             ActivityCompat.requestPermissions(ExpandingActivity.this,
                     new String[]{permission}, requestCode);
-
         } else {
-
             ActivityCompat.requestPermissions(ExpandingActivity.this,
                     new String[]{permission}, requestCode);
         }

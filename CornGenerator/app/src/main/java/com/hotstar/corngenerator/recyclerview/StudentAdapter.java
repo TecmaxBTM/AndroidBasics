@@ -1,10 +1,12 @@
 package com.hotstar.corngenerator.recyclerview;
 
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,9 +17,21 @@ import java.util.ArrayList;
 
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentVH> {
     ArrayList<Student> studentsList;
+    StudentClickListener callListenr;
 
-    public StudentAdapter(ArrayList<Student> stList) {
+    public StudentAdapter(ArrayList<Student> stList, StudentClickListener onclick) {
         studentsList = stList;
+        callListenr = onclick;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return super.getItemViewType(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return super.getItemId(position);
     }
 
     @Override
@@ -61,17 +75,47 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
             name.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    showCustomDialog(getAdapterPosition());
                 }
             });
 
             call.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String nois = studentsList.get(getAdapterPosition()).getMobile();
+                    Student add = studentsList.get(getAdapterPosition());
+                    String nois = add.getMobile();
+                    callListenr.onCallClick(add);
                     Toast.makeText(itemView.getContext(), nois, Toast.LENGTH_SHORT).show();
                 }
             });
         }
+
+        void showCustomDialog(final int position) {
+            LayoutInflater factory = LayoutInflater.from(name.getContext());
+            final View deleteDialogView = factory.inflate(R.layout.custom_dialog, null);
+            final AlertDialog deleteDialog = new AlertDialog.Builder(name.getContext()).create();
+            deleteDialog.setView(deleteDialogView);
+            final EditText editName = deleteDialogView.findViewById(R.id.txt_dia);
+            deleteDialogView.findViewById(R.id.btn_yes).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Student add = studentsList.get(position);
+                    add.setName(editName.getText().toString());
+                    notifyDataSetChanged();
+                    deleteDialog.dismiss();
+                }
+            });
+            deleteDialogView.findViewById(R.id.btn_no).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    deleteDialog.dismiss();
+                }
+            });
+            deleteDialog.show();
+        }
+    }
+
+    interface StudentClickListener {
+        void onCallClick(Student object);
     }
 }
