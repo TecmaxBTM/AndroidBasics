@@ -3,11 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.hotstar.corngenerator">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
     <application
+        android:name=".realm.MainApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -15,7 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".LauncherActivity"
+        <activity android:name=".realm.DbExampleActivity"></activity>
+        <activity
+            android:name=".LauncherActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,9 +29,8 @@
         <activity
             android:name=".coordinator.ExpandingActivity"
             android:label="@string/title_activity_expanding"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity android:name=".recyclerview.RecycleActivity"/>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".recyclerview.RecycleActivity" />
         <activity
             android:name=".bottomnava.BottomNavActivity"
             android:label="@string/title_activity_bottom_nav" />

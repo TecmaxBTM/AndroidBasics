@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hotstar.corngenerator.R;
+import com.hotstar.corngenerator.realm.DbExampleActivity;
 import com.hotstar.corngenerator.recyclerview.RecycleActivity;
 
 public class ExpandingActivity extends AppCompatActivity {
@@ -54,6 +55,13 @@ public class ExpandingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
                 t1.startAnimation(animation1);
+            }
+        });
+
+        findViewById(R.id.t3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ExpandingActivity.this, DbExampleActivity.class));
             }
         });
     }
