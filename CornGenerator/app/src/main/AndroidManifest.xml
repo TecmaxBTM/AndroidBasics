@@ -17,14 +17,17 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".realm.DbExampleActivity"></activity>
-        <activity
-            android:name=".LauncherActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".retrofit.RetroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".LauncherActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
         </activity>
         <activity
             android:name=".coordinator.ExpandingActivity"
